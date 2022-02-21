@@ -12,11 +12,11 @@ export default Vue.extend({
       const classes = {
         'status-online': this.status == 'online',
         'status-offline': this.status == 'offline',
-        'status-busy': this.status === 'busy',
+        'status-busy': this.status === 'busy'
       }
       return classes
-    },
-  },
+    }
+  }
 })
 </script>
 
