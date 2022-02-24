@@ -33,4 +33,16 @@ export default class Users extends VuexModule {
 
     this.context.commit('UPDATE_USER', user)
   }
+
+  @Action
+  public async update(payload: any) {
+    /* Se o user não tiver um cookie com o token apenas
+    faz um return (ignora todo o código abaixo): */
+    if (!$cookies.get('authToken')) return
+
+    // Tive que colocar o dollar sign para pegar direito o objeto de user de dentro de data
+    const user = await $axios.$put('/users', payload)
+
+    this.context.commit('UPDATE_USER', user)
+  }
 }
