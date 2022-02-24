@@ -10,7 +10,11 @@ const state = () => ({})
 type RootState = ReturnType<typeof state>
 
 export const actions: ActionTree<RootState, RootState> = {
-  nuxtServerInit({ dispatch }) {
+  async nuxtServerInit({ dispatch }) {
     dispatch('auth/update')
+
+    /* Executa a Action de show para carregar infos
+    do user assim que a aplicação for iniciada: */
+    await dispatch('users/show')
   }
 }
